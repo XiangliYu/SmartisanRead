@@ -8,6 +8,12 @@
 
 #import "UETextView.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @implementation UETextView
 
 - (id)initWithText:(NSString *)str{
@@ -16,7 +22,7 @@
     if (self) {
         
         self.x = 27;
-        self.width = 300;
+        self.width = SCREEN_WIDTH-75;
         self.text = str;
         self.font = [UIFont systemFontOfSize:13];
         self.textColor = [UIColor colorWithWhite:0.45 alpha:1];

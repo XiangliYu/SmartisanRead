@@ -1,3 +1,4 @@
+
 //
 //  SubscriptionViewController.m
 //  SmartisanRead
@@ -260,7 +261,7 @@
 - (void)changeImage{
     
     currentPage = lastPage+1;
-    [imageView setContentOffset:(CGPoint){currentPage*375,0} animated:YES];
+    [imageView setContentOffset:(CGPoint){currentPage*self.view.width,0} animated:YES];
     lastPage =currentPage;
     if (lastPage>3) {
         lastPage =-1;

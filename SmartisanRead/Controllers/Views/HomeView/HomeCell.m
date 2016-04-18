@@ -7,7 +7,13 @@
 //
 
 #import "HomeCell.h"
-#define CellWidth 375.f
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 
 @interface HomeCell(){
 
@@ -41,13 +47,13 @@
         name = [[UILabel alloc] initWithFrame:(CGRect){52,21,200,15}];
         [self.contentView addSubview:name];
         
-        recommend = [[UILabel alloc] initWithFrame:(CGRect){228,21,100,17}];
+        recommend = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-147,21,100,17}];
         [self.contentView addSubview:recommend];
   
-        cutLine = [[UIView alloc] initWithFrame:(CGRect){287,23,1,13}];
+        cutLine = [[UIView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-88,23,1,13}];
         [self.contentView addSubview:cutLine];
         
-        date = [[UILabel alloc] initWithFrame:(CGRect){294,20,70,18}];
+        date = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-81,20,70,18}];
         [self.contentView addSubview:date];
         
         title = [[UILabel alloc] init];
@@ -103,7 +109,7 @@
     title.numberOfLines = MAXFLOAT;
     title.x = 20;
     title.y = 53;
-    title.width = CellWidth-40;
+    title.width = SCREEN_WIDTH-40;
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:model.title];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -114,7 +120,7 @@
     
     content.x = 20;
     content.y = title.bottom+12;
-    content.frame = (CGRect){content.x,content.y,CellWidth-40,62};
+    content.frame = (CGRect){content.x,content.y,SCREEN_WIDTH-40,62};
     content.textColor = [UIColor colorWithWhite:0.45 alpha:1];
     content.font = [UIFont systemFontOfSize:14];
     content.numberOfLines = 3;
@@ -158,7 +164,7 @@
         bottomLine.y = content.bottom+20+background.height+15;
     }
     
-    bottomLine.frame = (CGRect){0,bottomLine.y,CellWidth,1};
+    bottomLine.frame = (CGRect){0,bottomLine.y,SCREEN_WIDTH,1};
     bottomLine.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 
 }
@@ -169,7 +175,7 @@
     height += 55;
     
     NSString *str = model.title;
-    CGSize titleSize = [str boundingRectWithSize:(CGSize){CellWidth-40,MAXFLOAT}
+    CGSize titleSize = [str boundingRectWithSize:(CGSize){SCREEN_WIDTH-40,MAXFLOAT}
                                          options:NSStringDrawingUsesLineFragmentOrigin
                                       attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}
                                          context:nil].size;

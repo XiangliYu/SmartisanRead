@@ -8,6 +8,12 @@
 
 #import "LoginView.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface LoginView()<UITextFieldDelegate>{
 
     UIImageView *backView;
@@ -62,7 +68,7 @@
     cutLine.backgroundColor = [UIColor colorWithWhite:0.93 alpha:1];
     [backView addSubview:cutLine];
     
-    eyes = [[UIImageView alloc] initWithFrame:(CGRect){308,50,43,35}];
+    eyes = [[UIImageView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-67,50,43,35}];
     
     headArray = (NSMutableArray*)@[[UIImage imageNamed:@"eye_icon_0001"], [UIImage imageNamed:@"eye_icon_0002"], [UIImage imageNamed:@"eye_icon_0003"], [UIImage imageNamed:@"eye_icon_0004"], [UIImage imageNamed:@"eye_icon_0005"], [UIImage imageNamed:@"eye_icon_0006"], [UIImage imageNamed:@"eye_icon_0007"], [UIImage imageNamed:@"eye_icon_0008"], [UIImage imageNamed:@"eye_icon_0009"], [UIImage imageNamed:@"eye_icon_0010"], [UIImage imageNamed:@"eye_icon_0011"], [UIImage imageNamed:@"eye_icon_0012"], [UIImage imageNamed:@"eye_icon_0013"], [UIImage imageNamed:@"eye_icon_0014"], [UIImage imageNamed:@"eye_icon_0015"], [UIImage imageNamed:@"eye_icon_0016"]];
 
@@ -101,7 +107,7 @@
     loginButton.alpha = 0.6;
     loginButton.enabled = NO;
     
-    UIButton *forgetPw = [[UIButton alloc] initWithFrame:(CGRect){277,212,100,15}];
+    UIButton *forgetPw = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-98,212,100,15}];
     [self addSubview:forgetPw];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"忘记密码"];
     NSRange strRange = {0,[str length]};

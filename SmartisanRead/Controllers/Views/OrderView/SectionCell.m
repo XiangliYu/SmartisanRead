@@ -8,6 +8,12 @@
 
 #import "SectionCell.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface SectionCell (){
     
     ButtonTappedBlock moreTapped;
@@ -26,14 +32,14 @@
     titleLabel.font = [UIFont systemFontOfSize:15];
     titleLabel.textColor = [UIColor colorWithWhite:0.3 alpha:1];
     
-    UILabel *moreLabel = [[UILabel alloc] initWithFrame:(CGRect){321,12,50,15}];
+    UILabel *moreLabel = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-54,12,50,15}];
     [self addSubview:moreLabel];
     moreLabel.text = more;
     moreLabel.font = [UIFont systemFontOfSize:14];
     moreLabel.textColor = [UIColor colorWithWhite:0.3 alpha:1];
     moreLabel.userInteractionEnabled = YES;
     
-    UIImageView *bt = [[UIImageView alloc] initWithFrame:(CGRect){348,8,28,22}];
+    UIImageView *bt = [[UIImageView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-27,8,28,22}];
     bt.image = [UIImage imageNamed:button];
     [self addSubview:bt];
     

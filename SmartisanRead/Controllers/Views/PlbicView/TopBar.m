@@ -6,6 +6,12 @@
 //  Copyright © 2012-2016 SmartisanFun LTD All rights reserved.
 //
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 #import "TopBar.h"
 
 @interface TopBar(){
@@ -56,7 +62,7 @@
 
 - (void)setRightbtTitle:(NSString *)title{
 
-    UIButton *rightButton = [[UIButton alloc] initWithFrame:(CGRect){302.5,0,68.5,53}];
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-72.5,0,68.5,53}];
     [self addSubview:rightButton];
     [rightButton setImage:[UIImage imageNamed:@"cancel_btn"] forState:UIControlStateNormal];
     [rightButton setImage:[UIImage imageNamed:@"cancel_btn_pressed"] forState:UIControlStateSelected];

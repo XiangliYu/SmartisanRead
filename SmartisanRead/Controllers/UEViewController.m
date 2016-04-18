@@ -8,6 +8,12 @@
 
 #import "UEViewController.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface UEViewController ()<ButtonDelegate,UIScrollViewDelegate>{
 
     TopBar *topBar;
@@ -53,7 +59,7 @@
     btLabel.text = @"参与用户体验改进计划";
     btLabel.font = [UIFont systemFontOfSize:18];
     
-    myButton = [[ButtonView alloc] initWithFrame:(CGRect){272,516.5,86.5,55.5}];
+    myButton = [[ButtonView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-103,516.5,86.5,55.5}];
     myButton.layer.masksToBounds = YES;
     myButton.buttonDelegate = self;
     [self.view addSubview:myButton];

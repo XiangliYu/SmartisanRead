@@ -8,6 +8,13 @@
 
 #import "SelectedView.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
+
 @interface SelectedView ()<UIScrollViewDelegate,UIPageViewControllerDelegate>{
 
     UIScrollView *scrollView;
@@ -38,7 +45,7 @@
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = [UIFont systemFontOfSize:16];
     
-    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){310,0,68.5,53}];
+    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-65,0,68.5,53}];
     [selectedView addSubview:button];
     [button setImage:[UIImage imageNamed:@"cancel_btn"] forState:UIControlStateNormal];
     [button setImage:[UIImage imageNamed:@"cancel_btn_pressed"] forState:UIControlStateSelected];

@@ -32,7 +32,7 @@
     textlabel.text = title;
     textlabel.font = [UIFont systemFontOfSize:18];
     
-    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){153,20,28,22}];
+    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){175,20,28,22}];
     [self addSubview:button];
     [button setImage:[UIImage imageNamed:@"usercenter_arrow_normal"] forState:UIControlStateNormal];
     

@@ -8,6 +8,12 @@
 
 #import "SetCell.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface SetCell (){
 
     SetCellTappedBlock cellTapped;
@@ -53,7 +59,7 @@
         contentLabel.font = [UIFont systemFontOfSize:15];
         contentLabel.textColor = [UIColor colorWithWhite:0.6 alpha:1];
         
-        UIImageView *buttonImage = [[UIImageView alloc] initWithFrame:(CGRect){330,21,30,23}];
+        UIImageView *buttonImage = [[UIImageView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-45,21,30,23}];
         [buttonView addSubview:buttonImage];
         buttonImage.image = [UIImage imageNamed:button];
  
@@ -94,7 +100,7 @@
     titleLabel.text = title;
     titleLabel.font = [UIFont systemFontOfSize:17];
     
-    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){330,21,30,23}];
+    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-40,21,30,23}];
     [self addSubview:button];
     [button setBackgroundImage:[UIImage imageNamed:@"usercenter_arrow_normal"] forState:UIControlStateNormal];
 

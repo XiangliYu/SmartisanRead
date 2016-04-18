@@ -8,6 +8,12 @@
 
 #import "Cell.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface Cell (){
 
     UIImageView *headIcon;
@@ -46,10 +52,10 @@
         smallIcon = [[UIButton alloc] initWithFrame:CGRectZero];
         [self addSubview:smallIcon];
         
-        rightBt = [[UIButton alloc] initWithFrame:(CGRect){297,15,64,32}];
+        rightBt = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-78,15,64,32}];
         [self addSubview:rightBt];
         
-        bottomLine = [[UIView alloc] initWithFrame:(CGRect){72,self.height-1.5,290,1.5}];
+        bottomLine = [[UIView alloc] initWithFrame:(CGRect){72,self.height-1.5,SCREEN_WIDTH-85,1.5}];
         [self addSubview:bottomLine];
         bottomLine.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
         
