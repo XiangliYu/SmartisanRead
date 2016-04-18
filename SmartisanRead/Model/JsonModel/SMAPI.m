@@ -50,7 +50,6 @@
             
             IndexModel *model = [[IndexModel alloc] initWithIndexDic:listDic];
             
-           // [indexId addObject:model.];
             [indexArray addObject:model];
         }
         if(block) block(indexArray,indexId);
@@ -274,5 +273,60 @@
     
     [[NSOperationQueue mainQueue] addOperation:operation];
 }
+
++ (void)recommend_id:(int)_id offset:(int)offset recommendDataSource:(IndexAPIBlock)block{
+    
+    NSString *str = [NSString stringWithFormat:@"http://reader.smartisan.com/index.php?r=myCenter/recommendList&offset=%d&page_size=20",offset];
+    NSURL *url = [NSURL URLWithString:str];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSString *html = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"Json:%@",html);
+        
+        NSError *error;
+        NSData *data = [html dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
+                                                                   options:NSJSONReadingAllowFragments
+                                                                     error:&error];
+        
+        NSLog(@"jsonObject:%@",jsonObject);
+        
+        NSString *code = [jsonObject objectForKey:@"code"];
+        NSLog(@"code:%@",code);
+        
+        NSString *page_count = [jsonObject objectForKey:@"page_count"];
+        NSLog(@"page_count:%@",page_count);
+        
+        NSDictionary *dataDic = [jsonObject objectForKey:@"data"];
+        NSLog(@"data:%@",dataDic);
+        
+        NSString *count = [dataDic objectForKey:@"count"];
+        NSLog(@"count:%@",count);
+        
+        NSMutableArray *recommendArray = [NSMutableArray array];
+        
+        NSMutableArray *listArray = [dataDic objectForKey:@"list"];
+        for (int i=0; i<listArray.count; i++) {
+            
+            NSDictionary *listDic = [listArray objectAtIndex:i];
+            NSLog(@"listDic:%@",listDic);
+            
+            CellModel *model = [[CellModel alloc] initWithCellDic:listDic];
+            [recommendArray addObject:model];
+        }
+        
+        if (block) block(recommendArray);
+        
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error:%@",error);
+    }];
+    
+    [[NSOperationQueue mainQueue] addOperation:operation];
+    
+}
+
 
 @end

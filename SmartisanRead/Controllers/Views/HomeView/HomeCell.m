@@ -99,9 +99,13 @@
     
     cutLine.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
     
+    NSTimeInterval time=[model.date doubleValue]+28800;
+    NSDate *_date=[NSDate dateWithTimeIntervalSince1970:time];
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    date.text = [dateFormatter stringFromDate:model.date];
+    
+    date.text = [dateFormatter stringFromDate:_date];
     date.font = [UIFont systemFontOfSize:12];
     date.textColor = [UIColor colorWithWhite:0.7 alpha:1];
     

@@ -39,7 +39,7 @@
         NSString *headStr = model.headIcon;
         NSString *nameStr = model.name;
         NSString *articleUrl = model.article;
-        NSDate *dateStr = model.date;
+        NSString *dateStr = model.date;
         
         SqlightAdapter *addSql = [SqlightAdapter database:dbName AndTable:tbName];
         SqlightResult *result = [addSql insertData:@{

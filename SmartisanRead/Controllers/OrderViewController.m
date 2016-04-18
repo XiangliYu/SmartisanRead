@@ -152,7 +152,7 @@
     NSString *str = @"编辑推荐站点";
     [sectionCell setSectionTitle:str More:@"更多" Button:@"usercenter_arrow_normal"];
     [sectionCell moreTapped:^{
-        
+
         RecommendViewController *recommendVC = [[RecommendViewController alloc] init];
         recommendVC.titles = str;
         [self.navigationController pushViewController:recommendVC animated:YES];

@@ -8,6 +8,12 @@
 
 #import "HistoryViewController.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>{
 
     TopBar *topBar;
@@ -31,7 +37,7 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
 
-    rightButton = [[UIButton alloc] initWithFrame:(CGRect){302.5,0,68.5,53}];
+    rightButton = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-72.5,0,68.5,53}];
     [topBar addSubview:rightButton];
     [rightButton setImage:[UIImage imageNamed:@"cancel_btn"] forState:UIControlStateNormal];
     [rightButton setImage:[UIImage imageNamed:@"cancel_btn_pressed"] forState:UIControlStateSelected];

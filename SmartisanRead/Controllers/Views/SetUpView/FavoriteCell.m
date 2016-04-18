@@ -35,7 +35,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        title = [[UILabel alloc] initWithFrame:(CGRect){15,17,345,16}];
+        title = [[UILabel alloc] initWithFrame:(CGRect){15,17,SCREEN_WIDTH-30,16}];
         [self.contentView addSubview:title];
         
         headIcon = [[UIImageView alloc] initWithFrame:(CGRect){15,45,18,18}];
@@ -51,7 +51,7 @@
         date = [[UILabel alloc] initWithFrame:CGRectZero];
         [self.contentView addSubview:date];
         
-        bottomLine = [[UIView alloc] initWithFrame:(CGRect){0,74,375,1}];
+        bottomLine = [[UIView alloc] initWithFrame:(CGRect){0,74,SCREEN_WIDTH,1}];
         bottomLine.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
         [self.contentView addSubview:bottomLine];
         
@@ -83,20 +83,24 @@
     name.textColor = [UIColor colorWithWhite:0.6 alpha:1];
     [name sizeToFit];
     
-    cutLine.x = name.right+15;
+    cutLine.x = name.right+14;
     cutLine.y = 47;
     cutLine.frame = (CGRect){cutLine.x,cutLine.y,1,14};
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *destDateString = [dateFormatter stringFromDate:model.date];
-
-    date.text = destDateString;
-    date.font = [UIFont systemFontOfSize:13];
-    date.textColor = [UIColor colorWithWhite:0.6 alpha:1];
     date.x = cutLine.right+15;
     date.y = 46;
-    [date sizeToFit];
+    date.frame = (CGRect){date.x,date.y,100,15};
+    date.font = [UIFont systemFontOfSize:13];
+    date.textColor = [UIColor colorWithWhite:0.6 alpha:1];
+    
+    NSTimeInterval time=[model.date doubleValue]+28800;
+    NSDate *_date=[NSDate dateWithTimeIntervalSince1970:time];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy.MM.dd"];
+    
+    date.text = [dateFormatter stringFromDate:_date];
+
 }
 
 - (void)cellAction:(UITapGestureRecognizer*)tap{

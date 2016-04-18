@@ -11,5 +11,6 @@
 @interface RecommendViewController : UIViewController
 
 @property(nonatomic,strong)NSString *titles;
+@property(nonatomic,strong)CellModel *model;
 
 @end

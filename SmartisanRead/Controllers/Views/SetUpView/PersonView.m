@@ -8,6 +8,12 @@
 
 #import "PersonView.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface PersonView (){
 
     SetCell *subscribeView;
@@ -43,11 +49,11 @@
     backView.image = [backImage stretchableImageWithLeftCapWidth:17 topCapHeight:30];
     [self addSubview:backView];
     
-    UIImageView *buttonImage = [[UIImageView alloc] initWithFrame:(CGRect){153,30,69,69}];
+    UIImageView *buttonImage = [[UIImageView alloc] initWithFrame:(CGRect){173,30,69,69}];
     buttonImage.image = [UIImage imageNamed:@"usercenter_head_default"];
     [self addSubview:buttonImage];
     
-    UIButton *headButton = [[UIButton alloc] initWithFrame:(CGRect){143,25,81,81}];
+    UIButton *headButton = [[UIButton alloc] initWithFrame:(CGRect){168,25,81,81}];
     [self addSubview:headButton];
     [headButton setBackgroundImage:[UIImage imageNamed:@"usercenter_usericon_normal"] forState:UIControlStateNormal];
     [headButton setBackgroundImage:[UIImage imageNamed:@"usercenter_usericon_pressed"] forState:UIControlStateSelected];
@@ -88,7 +94,7 @@
 
 - (void)setListNum:(NSString *)listNum{
 
-    UILabel *number = [[UILabel alloc] initWithFrame:(CGRect){277,25,100,15}];
+    UILabel *number = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-98,25,100,15}];
     [subscribeView addSubview:number];
     number.text = listNum;
     number.font = [UIFont systemFontOfSize:15];
@@ -97,7 +103,7 @@
 
 - (void)setFavNum:(NSString *)favNum{
 
-    UILabel *number = [[UILabel alloc] initWithFrame:(CGRect){277,25,100,15}];
+    UILabel *number = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-98,25,100,15}];
     [collectView addSubview:number];
     number.text = favNum;
     number.font = [UIFont systemFontOfSize:15];

@@ -23,6 +23,5 @@
 #import "RefreshHeader.h"
 #import "RefreshFooter.h"
 #import "ButtonView.h"
-#import "ArticleText.h"
 #import "UETextView.h"
 #import "FavoriteCell.h"

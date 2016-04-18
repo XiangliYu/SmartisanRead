@@ -79,7 +79,7 @@
     scrollView.contentSize = (CGSize){self.view.width-20,2000};
     scrollView.delegate = self;
     
-    UILabel *title = [[UILabel alloc] initWithFrame:(CGRect){110,40,150,20}];
+    UILabel *title = [[UILabel alloc] initWithFrame:(CGRect){130,40,150,20}];
     title.text = @"用户体验改进计划";
     title.font = [UIFont systemFontOfSize:17];
     [scrollView addSubview:title];

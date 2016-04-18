@@ -8,6 +8,12 @@
 
 #import "ContentViewController.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface ContentViewController ()<UIScrollViewDelegate,UIWebViewDelegate>{
 
     TopBar *topBar;
@@ -44,12 +50,12 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
     
-    starButton = [[UIButton alloc] initWithFrame:(CGRect){270,2,50,50}];
+    starButton = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-105,2,50,50}];
     [topBar addSubview:starButton];
     [starButton setBackgroundImage:[UIImage imageNamed:@"details_favourite_btn_pressed"] forState:UIControlStateNormal];
     [starButton addTarget:self action:@selector(starBtAction) forControlEvents:UIControlEventTouchUpInside];
 
-    transmitBt = [[UIButton alloc] initWithFrame:(CGRect){320,6.5,51,42}];
+    transmitBt = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-50,6.5,51,42}];
     [topBar addSubview:transmitBt];
     [transmitBt setImage:[UIImage imageNamed:@"share_btn_normal"] forState:UIControlStateNormal];
     [transmitBt setImage:[UIImage imageNamed:@"share_btn_pressed"] forState:UIControlStateSelected];
@@ -73,18 +79,20 @@
     name.font = [UIFont systemFontOfSize:14];
     name.textColor = [UIColor colorWithWhite:0.5 alpha:1];
     
-    time = [[UILabel alloc] initWithFrame:(CGRect){295,25,100,15}];
+    time = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-120,25,100,15}];
     [scrollView addSubview:time];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *destDateString = [dateFormatter stringFromDate:self.model.date];
+    NSTimeInterval timeInterval=[self.model.date doubleValue]+28800;
+    NSDate *date=[NSDate dateWithTimeIntervalSince1970:timeInterval];
     
-    time.text = destDateString;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy年MM月dd日"];
+    
+    time.text = [dateFormatter stringFromDate:date];
     time.font = [UIFont systemFontOfSize:13];
     time.textColor = [UIColor colorWithWhite:0.7 alpha:1];
     
-    webView = [[UIWebView alloc] initWithFrame:(CGRect){0,0,self.view.width,self.view.height}];
+    webView = [[UIWebView alloc] initWithFrame:(CGRect){0,42,self.view.width,self.view.height-42}];
     [scrollView addSubview:webView];
     webView.delegate = self;
     

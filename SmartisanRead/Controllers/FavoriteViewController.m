@@ -54,7 +54,7 @@
     
     [cell setModel:[dataArray objectAtIndex:indexPath.row]];
     [cell cellTapped:^(IndexModel *myModel){
-        NSLog(@"myModel:%@",myModel.name);
+       
         ContentViewController *contentVC = [[ContentViewController alloc] init];
         contentVC.model = myModel;
         [self presentViewController:contentVC animated:YES completion:nil];

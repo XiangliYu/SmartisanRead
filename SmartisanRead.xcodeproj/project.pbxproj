@@ -21,7 +21,6 @@
 		E33A75881CA10382006C2543 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E33A75871CA10382006C2543 /* ArticleViewController.m */; };
 		E3585F001CAFECDF00292C71 /* UEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3585EFF1CAFECDF00292C71 /* UEViewController.m */; };
 		E3585F061CB0107200292C71 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3585F051CB0107200292C71 /* ButtonView.m */; };
-		E3585F091CB0FBC600292C71 /* ArticleText.m in Sources */ = {isa = PBXBuildFile; fileRef = E3585F081CB0FBC600292C71 /* ArticleText.m */; };
 		E3585F0C1CB2C28D00292C71 /* UETextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3585F0B1CB2C28D00292C71 /* UETextView.m */; };
 		E35BABAD1CB4CD4400AEF916 /* SqlightAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BABA71CB4CD4400AEF916 /* SqlightAdapter.m */; };
 		E35BABAE1CB4CD4400AEF916 /* SqlightDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = E35BABA91CB4CD4400AEF916 /* SqlightDriver.m */; };
@@ -116,8 +115,6 @@
 		E3585EFF1CAFECDF00292C71 /* UEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UEViewController.m; sourceTree = "<group>"; };
 		E3585F041CB0107200292C71 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
 		E3585F051CB0107200292C71 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
-		E3585F071CB0FBC600292C71 /* ArticleText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleText.h; sourceTree = "<group>"; };
-		E3585F081CB0FBC600292C71 /* ArticleText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleText.m; sourceTree = "<group>"; };
 		E3585F0A1CB2C28D00292C71 /* UETextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UETextView.h; sourceTree = "<group>"; };
 		E3585F0B1CB2C28D00292C71 /* UETextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UETextView.m; sourceTree = "<group>"; };
 		E35BABA61CB4CD4400AEF916 /* SqlightAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlightAdapter.h; sourceTree = "<group>"; };
@@ -421,8 +418,6 @@
 				E30C68D71CA7BC22003985C7 /* RefreshHeader.m */,
 				E30C68D91CA7BC39003985C7 /* RefreshFooter.h */,
 				E30C68DA1CA7BC39003985C7 /* RefreshFooter.m */,
-				E3585F071CB0FBC600292C71 /* ArticleText.h */,
-				E3585F081CB0FBC600292C71 /* ArticleText.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -713,7 +708,6 @@
 				E35BAE371CC494C900AEF916 /* SMAPI.m in Sources */,
 				E3892FC71CA107C400AA4164 /* LoginView.m in Sources */,
 				E35BAD1B1CBE51E500AEF916 /* TypeModel.m in Sources */,
-				E3585F091CB0FBC600292C71 /* ArticleText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

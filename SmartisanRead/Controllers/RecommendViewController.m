@@ -12,7 +12,9 @@
 
     TopBar *topBar;
     UITableView *tableView;
-    NSArray *dataArray;
+    NSMutableArray *dataArray;
+    
+    int offset;
 }
 
 @end
@@ -32,6 +34,7 @@
     
     topBar = [[TopBar alloc] initWithFrame:(CGRect){0,20,self.view.width,55}];
     [self.view addSubview:topBar];
+    
     NSString *title = self.titles;
     [topBar setReturnBt:@"返回" Title:title];
     [topBar returnBtTapped:^{
@@ -44,8 +47,13 @@
     tableView.delegate = self;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    
-  //  dataArray = [CellModel moreArray];
+    [SMAPI recommend_id:false offset:offset recommendDataSource:^(NSMutableArray *homeSource) {
+        
+        dataArray = homeSource;
+        offset = (int)dataArray.count/20;
+        [tableView reloadData];
+
+    }];
     
 }
 
@@ -63,11 +71,15 @@
     }
     
     [cell setModel:[dataArray objectAtIndex:indexPath.row]];
- //   [cell cellTapped:^(CellModel*model){
+    [cell cellTapped:^(CellModel*model){
         
-//        ArticleViewController *articleVC = [[ArticleViewController alloc] init];
-//        [self.navigationController pushViewController:articleVC animated:YES];
- //   }];
+        ArticleViewController *articleVC = [[ArticleViewController alloc] init];
+        articleVC.model = model;
+        articleVC.dataArray = dataArray;
+        articleVC.index = (int)indexPath.row;
+        [self.navigationController pushViewController:articleVC animated:YES];
+
+    }];
     [cell changeBtImage:^{
         [cell changeBtState:[dataArray objectAtIndex:indexPath.row]];
     }];

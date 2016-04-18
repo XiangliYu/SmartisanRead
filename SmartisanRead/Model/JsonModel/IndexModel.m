@@ -64,10 +64,8 @@
     
     self.article = origin_url;
     self.star = NO;
-    
-    NSTimeInterval time=[create_time doubleValue]+28800;
-    NSDate *date=[NSDate dateWithTimeIntervalSince1970:time];
-    self.date = date;
+ 
+    self.date = create_time;
     
     return self;
 }
