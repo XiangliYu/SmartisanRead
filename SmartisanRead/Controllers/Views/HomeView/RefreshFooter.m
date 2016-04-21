@@ -8,6 +8,13 @@
 
 #import "RefreshFooter.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
+
 @interface RefreshFooter (){
 
     UILabel *refreshText;
@@ -36,12 +43,12 @@
 
 - (void)refreshVeiw{
     
-    refreshText = [[UILabel alloc] initWithFrame:(CGRect){135,32.5,200,15}];
+    refreshText = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-240,32.5,200,15}];
     [self addSubview:refreshText];
     refreshText.textAlignment = NSTextAlignmentLeft;
     refreshText.font = [UIFont systemFontOfSize:15];
     
-    imageView = [[UIImageView alloc] initWithFrame:(CGRect){100,5,22,70}];
+    imageView = [[UIImageView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-275,5,22,70}];
     [self addSubview:imageView];
     
     pullArray = [[NSMutableArray alloc] init];

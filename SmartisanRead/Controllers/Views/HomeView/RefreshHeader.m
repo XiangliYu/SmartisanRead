@@ -9,6 +9,12 @@
 #import "RefreshHeader.h"
 #import "ViewAdditions.h"
 
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+
+#define isiPhone6 (375==[[UIScreen mainScreen] bounds].size.width)
+#define isiPhone6Plus (414==[[UIScreen mainScreen] bounds].size.width)
+
 @interface RefreshHeader (){
 
     UILabel *refreshText;
@@ -39,12 +45,12 @@
 
 - (void)refreshVeiw{
     
-    refreshText = [[UILabel alloc] initWithFrame:(CGRect){135,32,200,20}];
+    refreshText = [[UILabel alloc] initWithFrame:(CGRect){SCREEN_WIDTH-240,32,200,20}];
     [self addSubview:refreshText];
     refreshText.textAlignment = NSTextAlignmentLeft;
     refreshText.font = [UIFont systemFontOfSize:15];
     
-    imageView = [[UIImageView alloc] initWithFrame:(CGRect){100,7,22,70}];
+    imageView = [[UIImageView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-275,7,22,70}];
     [self addSubview:imageView];
     
     pullArray = [[NSMutableArray alloc] init];
