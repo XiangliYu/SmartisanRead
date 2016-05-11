@@ -70,8 +70,7 @@
 - (void)setModel:(CellModel *)model{
     _model = model;
     
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.headIcon]];
-    headIcon.image = [UIImage imageWithData:data];
+    [headIcon setImageWithURL:[NSURL URLWithString:model.headIcon] placeholderImage:[UIImage imageNamed:@"3dddbd32ae80eb5e9e16fc83dabcc102"]];
     headIcon.layer.cornerRadius = 22;
     headIcon.layer.masksToBounds = YES;
     

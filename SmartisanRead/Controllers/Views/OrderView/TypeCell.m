@@ -24,15 +24,14 @@
     
     UIImageView *imageIcon = [[UIImageView alloc] initWithFrame:(CGRect){13,20,23,23}];
     [self addSubview:imageIcon];
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:image]];
-    imageIcon.image = [UIImage imageWithData:data];
+    [imageIcon setImageWithURL:[NSURL URLWithString:image] placeholderImage:[UIImage imageNamed:@"3dddbd32ae80eb5e9e16fc83dabcc102"]];
     
     UILabel *textlabel = [[UILabel alloc] initWithFrame:(CGRect){47,22,50,18}];
-    [self addSubview:textlabel];
+    [self addSubview:textlabel]; 
     textlabel.text = title;
     textlabel.font = [UIFont systemFontOfSize:18];
     
-    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){175,20,28,22}];
+    UIButton *button = [[UIButton alloc] initWithFrame:(CGRect){150,20,28,22}];
     [self addSubview:button];
     [button setImage:[UIImage imageNamed:@"usercenter_arrow_normal"] forState:UIControlStateNormal];
     

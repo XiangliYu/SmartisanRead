@@ -49,11 +49,11 @@
     backView.image = [backImage stretchableImageWithLeftCapWidth:17 topCapHeight:30];
     [self addSubview:backView];
     
-    UIImageView *buttonImage = [[UIImageView alloc] initWithFrame:(CGRect){173,30,69,69}];
+    UIImageView *buttonImage = [[UIImageView alloc] initWithFrame:(CGRect){SCREEN_WIDTH-223,30,69,69}];
     buttonImage.image = [UIImage imageNamed:@"usercenter_head_default"];
     [self addSubview:buttonImage];
     
-    UIButton *headButton = [[UIButton alloc] initWithFrame:(CGRect){168,25,81,81}];
+    UIButton *headButton = [[UIButton alloc] initWithFrame:(CGRect){SCREEN_WIDTH-225,25,81,81}];
     [self addSubview:headButton];
     [headButton setBackgroundImage:[UIImage imageNamed:@"usercenter_usericon_normal"] forState:UIControlStateNormal];
     [headButton setBackgroundImage:[UIImage imageNamed:@"usercenter_usericon_pressed"] forState:UIControlStateSelected];

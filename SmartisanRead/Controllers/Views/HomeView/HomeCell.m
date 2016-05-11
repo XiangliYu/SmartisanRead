@@ -83,8 +83,7 @@
         }
     }
     
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.headIcon]];
-    headIcon.image = [UIImage imageWithData:data];
+    [headIcon setImageWithURL:[NSURL URLWithString:model.headIcon] placeholderImage:[UIImage imageNamed:@"3dddbd32ae80eb5e9e16fc83dabcc102"]];
     headIcon.layer.borderWidth = 0.3;
     headIcon.layer.cornerRadius = 11;
     headIcon.layer.masksToBounds = YES;
@@ -154,8 +153,7 @@
                 [self.contentView addSubview:background];
                 
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:(CGRect){4,4,width-8,width-8}];
-                NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:str]];
-                imageView.image = [UIImage imageWithData:imageData];
+                [imageView setImageWithURL:[NSURL URLWithString:str] placeholderImage:[UIImage imageNamed:@"3dddbd32ae80eb5e9e16fc83dabcc102"]];
                 imageView.contentMode = UIViewContentModeScaleToFill;
                 [background addSubview:imageView];
             }

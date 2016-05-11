@@ -12,7 +12,7 @@ typedef void (^ImageTappedBlock)(void);
 
 @interface ScrollPageView : UIImageView
 
-- (id)initWithFrame:(CGRect)frame setImage:(UIImage*)image;
+- (id)initWithFrame:(CGRect)frame setImage:(NSString*)imageStr;
 - (void)imageButtonTapped:(ButtonTappedBlock)block;
 
 @end

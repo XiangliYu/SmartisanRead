@@ -78,6 +78,8 @@
     }
     
     [cell setModel:[dataArray objectAtIndex:indexPath.row]];
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     [cell cellTapped:^(IndexModel *myModel){
        
         ContentViewController *contentVC = [[ContentViewController alloc] init];

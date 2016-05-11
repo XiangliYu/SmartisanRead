@@ -67,8 +67,7 @@
     scrollView.contentSize = (CGSize){self.view.width,2400};
     
     headIcon = [[UIImageView alloc] initWithFrame:(CGRect){18,20,22,22}];
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.model.headIcon]];
-    headIcon.image = [UIImage imageWithData:data];
+    [headIcon setImageWithURL:[NSURL URLWithString:self.model.headIcon] placeholderImage:[UIImage imageNamed:@"3dddbd32ae80eb5e9e16fc83dabcc102"]];
     headIcon.layer.cornerRadius = 11;
     headIcon.layer.masksToBounds = YES;
     [scrollView addSubview:headIcon];

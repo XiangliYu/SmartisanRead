@@ -69,8 +69,7 @@
     title.font = [UIFont systemFontOfSize:17];
     title.lineBreakMode = NSLineBreakByTruncatingTail;
     
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:model.headIcon]];
-    headIcon.image = [UIImage imageWithData:data];
+    [headIcon setImageWithURL:[NSURL URLWithString:model.headIcon] placeholderImage:[UIImage imageNamed:@"3dddbd32ae80eb5e9e16fc83dabcc102"]];
     headIcon.layer.cornerRadius = 9;
     headIcon.layer.masksToBounds = YES;
     headIcon.layer.borderWidth = 0.3;

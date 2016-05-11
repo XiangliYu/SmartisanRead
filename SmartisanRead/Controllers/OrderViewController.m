@@ -129,9 +129,7 @@
         HeaderModel *headerModel = [[HeaderModel alloc] init];
         headerModel = [picArray objectAtIndex:i];
         
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:headerModel.pic]];
-        
-        scrollImages = [[ScrollPageView alloc] initWithFrame:(CGRect){6+width*i,4,imageWidth,imageHeight} setImage:[UIImage imageWithData:imageData]];
+        scrollImages = [[ScrollPageView alloc] initWithFrame:(CGRect){6+width*i,4,imageWidth,imageHeight} setImage:headerModel.pic];
         scrollImages.userInteractionEnabled = YES;
         [imageView addSubview:scrollImages];
         [scrollImages imageButtonTapped:^{
@@ -189,6 +187,8 @@
         cell = [[Cell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     [cell setModel:[cellArray objectAtIndex:indexPath.row]];
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     [cell cellTapped:^(CellModel*model){
         
         ArticleViewController *articleVC = [[ArticleViewController alloc] init];

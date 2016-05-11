@@ -16,16 +16,16 @@
 
 @implementation ScrollPageView
 
-- (id)initWithFrame:(CGRect)frame setImage:(UIImage *)image{
+- (id)initWithFrame:(CGRect)frame setImage:(NSString *)imageStr{
     
     self = [super initWithFrame:frame];
     if (self) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:(CGRect){0,0,self.width,self.height}];
-        imageView.image = image;
         imageView.userInteractionEnabled = YES;
         imageView.layer.cornerRadius = 5;
         imageView.layer.masksToBounds = YES;
         [self addSubview:imageView];
+        [imageView setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"3dddbd32ae80eb5e9e16fc83dabcc102"]];
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         [self addGestureRecognizer:tap];

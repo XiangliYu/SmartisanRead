@@ -195,7 +195,7 @@
 
 - (HomeCell *)tableView:(UITableView *)TableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *identifier = @"Cell";
+    static NSString *identifier = @"HomeCell";
     HomeCell *cell = [TableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[HomeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -203,6 +203,8 @@
     
     [cell setPerson:NO];
     [cell setModel:[homeArray objectAtIndex:indexPath.row]];
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     [cell cellTapped:^(IndexModel *model){
         
         ContentViewController *contentVC = [[ContentViewController alloc] init];
